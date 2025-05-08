@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/index.css">
+    
+</head>
+<body>
+    <div class="container">
+        <main>
+            <h1 class="logo">
+                <img src="assets/imgs/ArrowsDownUp-1.svg" alt="">
+                convert
+            </h1>
+            <form action="#">
+                <fieldset>
+                    <div class="input-wrapper ">
+                        <label for="value">valor</label>
+                        <input type="number" required data-value id="value" name="value">
+                    </div>
+        
+                    <div class="input-wrapper ">
+                        <label for="coin">moeda</label>
+                        <select name="coin" id="coin" data-coin required>
+                            <option value=""></option>
+                            <option value="euro">Euro</option>
+                            <option value="dolar">Dólar americano</option>
+                            <option value="libra">Libra esterlina</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <button>
+                    Converter em reais
+                </button>
+            </form>
+        </main>
+        <footer>
+            <span class="description">
+                US$ 1 = R$ 4,86
+            </span>
+            <p class="result">
+                486,00 Reais
+            </p>
+        </footer>
+    </div>
+
+<script src="assets/script/script.js"></script>
+</body>
+</html>

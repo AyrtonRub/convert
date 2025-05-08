@@ -1,0 +1,19 @@
+footer {
+    border-radius: 0rem 0rem 1.5rem 1.5rem;
+    background: var(--blue-400, #1F2151);
+    padding: 2.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    & span {
+        color: #7D8DEC;
+        font-family: "IBM Plex Mono", "sans-serif";
+    }
+
+    & .result {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+}

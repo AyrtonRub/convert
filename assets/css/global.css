@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --default: #2F34AB;
+    --hover: #4A5DCD;
+    --disabled: #2F34AB;
+    --empty-default: #0E0F25;
+    --border-color: #1F2151;
+    --blue-900: #B2B8DE;
+
+
+
+    --text--color-primary: #F1F2F6;
+ 
+}
+
+body {
+    height: 100vh;
+    background: url(../imgs/Background.png) lightgray 50% / cover no-repeat;
+    padding-top: 4rem;
+    font-family: 'inter', 'sans-serif';
+    color: var(--text--color-primary);
+}
+
+.container {
+    margin: auto;
+    max-width: 31.25rem;
+}
+
+fieldset {
+    border: none;
+}
