@@ -31,6 +31,10 @@ body {
     max-width: 31.25rem;
 }
 
+.none {
+    display: none;
+}
+
 fieldset {
     border: none;
 }
