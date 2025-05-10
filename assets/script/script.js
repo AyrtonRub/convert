@@ -1,57 +1,56 @@
-(function () {
-  const valueCoin = document.querySelector("[data-value]");
-  const coin = document.querySelector("[data-coin]");
-  const btn = document.querySelector("button");
-  const description = document.querySelector(".description");
-  const result = document.querySelector(".result");
-  const footer = document.querySelector("footer");
+(function() {
+  const valueInput = document.querySelector('[data-value]')
+  const coin = document.querySelector('[data-coin]')
+  const btn = document.querySelector('button')
+  const display = document.querySelector('footer')
 
-  const coins = {
-    dolar: 5.66,
-    euro: 6.36,
-    libra: 7.5,
-  };
+  const coins = [
+    {name: 'dolar', simbolo: 'USD$', price: 5.65},
+    {name: 'euro', simbolo: 'EUR€', price: 6.37},
+    {name: 'libra', simbolo: 'GBP£', price:  7.51},
+  ]
 
-  const currencySymbols = {
-    dolar: "US$",
-    euro: "€",
-    libra: "£",
-  };
-
-  let currentCoin = null;
-
-  coin.addEventListener("change", function () {
-    currentCoin = this.value;
-  });
-
-  function calculation() {
-    const valueInput = parseFloat(valueCoin.value);
-    let total = null;
-
-    if (currentCoin !== null && !isNaN(valueInput)) {
-      if (coins[currentCoin]) {
-        total = valueInput * coins[currentCoin];
-      }
-    }
-
-    if (total !== null) return total;
+  function showIsError(msg, element ) {
+    alert(msg)
+    element.focus()
   }
 
-  function showResult() {
-    description.textContent = `
-        ${currencySymbols[currentCoin]} 1 = R$ ${String(
-      coins[currentCoin]
-    ).replace(".", ",")}
-    `;
-
-    const resultado = calculation();
-    result.textContent = `R$ ${resultado.toFixed(2).replace(".", ",")} Reais`;
+  function createElement(tagName, className) {
+    const element = document.createElement(tagName)
+    element.classList.add(className)
+    return element
   }
 
-  btn.onclick = function (e) {
-    e.preventDefault();
-    if (currentCoin !== null && !isNaN(parseFloat(valueCoin.value))) {
-      showResult();
+
+  function calculateResult(e) {
+    e.preventDefault()
+    const valueCoin = parseFloat(valueInput.value)
+    const currentCoin = coin.value
+
+
+    if(valueCoin <= 0 || isNaN(valueCoin)) {
+      showIsError('Por favor, insira um valor válido', valueInput)
+      return;
     }
-  };
-})();
+
+    if(currentCoin ==='') {
+      showIsError('Gentileza, insira uma moeda valida', coin)
+      return;
+    }
+
+    const index = coins.findIndex($ => $.name === currentCoin)
+    const result = valueCoin * coins[index].price
+
+    display.style.display = 'flex'
+    display.innerHTML = ''
+    const span = createElement('span', 'description')
+    span.textContent = `
+    ${coins[index].simbolo} 1 = R$ ${coins[index].price.toFixed(2).replace('.',',')} `
+    display.appendChild(span)
+    const p = createElement('p', 'result') 
+    p.textContent = `R$ ${result.toFixed(2).replace('.', ',')} Reais`
+    display.appendChild(p)
+  }
+
+  btn.addEventListener('click', calculateResult)
+})()
